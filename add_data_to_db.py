@@ -2,7 +2,7 @@ import django
 import os
 
 # Устанавливаем переменную окружения для настроек Django-проекта
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'book_catalog_settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'book_catalog.settings')
 
 # Инициализируем Django
 django.setup()
@@ -29,28 +29,27 @@ authors = [
         bio='Британский писатель и публицист, автор антиутопий.', works='1984, Скотный двор'),
     Author(id=5, name='Фрэнсис скотт фицджеральд', img_src='', years_of_age='1896-1948',
         bio='Американский писатель, мастер прозы.', works='Великий Гэтсби, Ночь нежна')]
-Author.objects.create(authors)
+Author.objects.bulk_create(authors)
 
 books = [
-    Book(id=1, title='война и мир', author_id=1, img_src=''),
-    Book(id=2, title='преступление и наказание', author_id=2, img_src=''),
-    Book(id=3, title='евриний онегин', author_id=3, img_src=''),
-    Book(id=4, title='1984', author_id=4, img_src=''),
-    Book(id=5, title='великий гэтсби', author_id=5, img_src=''),
+    Book(id=1, title='война и мир', author_id=1, img_src='', publication_date='1869-01-01', short_desc='Эпическое произведение о войне 1812 года.'),
+    Book(id=2, title='преступление и наказание', author_id=2, img_src='', publication_date='1866-01-01', short_desc='Рассказ о преступлении и его моральных последсвияхю'),
+    Book(id=3, title='евгений онегин', author_id=3, img_src='', publication_date='1833-01-01', short_desc='Роман в стихах о дворянском обществею'),
+    Book(id=4, title='1984', author_id=4, img_src='', publication_date='1949-06-08', short_desc='Антиутопия о тоталитарном обществею'),
+    Book(id=5, title='великий гэтсби', author_id=5, img_src='', publication_date='1925-4-10', short_desc='История о жизни американсой элиты 1920-х годов.'),
 ]
 
 # Массово добавляем информацию в базу данных
 Book.objects.bulk_create(books)
-
 book_details = [
     BookDetail(id=1, book_id=1, description='История семьи Ростовых, Болконских и других в эпоху наполеоновских войн.'),
     BookDetail(id=2, book_id=2, description='Психологический роман о студенте, который совершает убийство.'),
     BookDetail(id=3, book_id=3, description='Классический роман в стихах, рассказывающий о любви и трагедии.'),
-    BookDetail(id=4, book_id=4, description='Иранный прогноз будущего, где Большой Брат следит за всеми.'),
+    BookDetail(id=4, book_id=4, description='Мрачный прогноз будущего, где Большой Брат следит за всеми.'),
     BookDetail(id=5, book_id=5, description='История любви и предательства в эпоху джаза.'),
 ]
 
 # Массово добавляем информацию в базу данных
-BookDetail.objects.create(book_details)
+BookDetail.objects.bulk_create(book_details)
 
 print('База данных успешно обновлена!')
