@@ -16,27 +16,27 @@ Book.objects.all().delete()
 BookDetail.objects.all().delete()
 
 authors = [
-    Author(id=1, name='Лев толстой', img_src='', years_of_age='1828-1910',
+    Author(id=1, name='Лев толстой', img_src='author/tolstoy.jpg', years_of_age='1828-1910',
         bio='Русский писатель, философ, публицист, родоначальник толстовства.',
         works='Война и мир, Анна Каренина'),
-    Author(id=2, name='Федор достоевский', img_src='', years_of_age='1821-1881',
+    Author(id=2, name='Федор достоевский', img_src='author/dostoevsky.jpg', years_of_age='1821-1881',
         bio='Один из величайших русских писателей, мыслитель, философ.',
         works='Преступление и наказание, Идиот'),
-    Author(id=3, name='Александр пушкин', img_src='', years_of_age='1799-1837',
+    Author(id=3, name='Александр пушкин', img_src='author/pushkin.jpg', years_of_age='1799-1837',
         bio='Русский поэт, драматург, основоположник современного русского языка.',
         works='Евгений Онегин, Борис Годунов'),
-    Author(id=4, name='Джордж оруэлл', img_src='', years_of_age='1903-1950',
+    Author(id=4, name='Джордж оруэлл', img_src='author/orwell.jpg', years_of_age='1903-1950',
         bio='Британский писатель и публицист, автор антиутопий.', works='1984, Скотный двор'),
-    Author(id=5, name='Фрэнсис скотт фицджеральд', img_src='', years_of_age='1896-1948',
+    Author(id=5, name='Фрэнсис скотт фицджеральд', img_src='author/fitzgerald.jpg', years_of_age='1896-1948',
         bio='Американский писатель, мастер прозы.', works='Великий Гэтсби, Ночь нежна')]
 Author.objects.bulk_create(authors)
 
 books = [
-    Book(id=1, title='война и мир', author_id=1, img_src='', publication_date='1869-01-01', short_desc='Эпическое произведение о войне 1812 года.'),
-    Book(id=2, title='преступление и наказание', author_id=2, img_src='', publication_date='1866-01-01', short_desc='Рассказ о преступлении и его моральных последсвияхю'),
-    Book(id=3, title='евгений онегин', author_id=3, img_src='', publication_date='1833-01-01', short_desc='Роман в стихах о дворянском обществею'),
-    Book(id=4, title='1984', author_id=4, img_src='', publication_date='1949-06-08', short_desc='Антиутопия о тоталитарном обществею'),
-    Book(id=5, title='великий гэтсби', author_id=5, img_src='', publication_date='1925-4-10', short_desc='История о жизни американсой элиты 1920-х годов.'),
+    Book(id=1, title='война и мир', author_id=1, img_src='book/war_and_peace.jpg', publication_date='1869-01-01', short_desc='Эпическое произведение о войне 1812 года.'),
+    Book(id=2, title='преступление и наказание', author_id=2, img_src='book/crime.jpg', publication_date='1866-01-01', short_desc='Рассказ о преступлении и его моральных последсвияхю'),
+    Book(id=3, title='евгений онегин', author_id=3, img_src='book/onegin.jpg', publication_date='1833-01-01', short_desc='Роман в стихах о дворянском обществею'),
+    Book(id=4, title='1984', author_id=4, img_src='book/1984.jpg', publication_date='1949-06-08', short_desc='Антиутопия о тоталитарном обществею'),
+    Book(id=5, title='великий гэтсби', author_id=5, img_src='book/gatsby.jpg', publication_date='1925-4-10', short_desc='История о жизни американсой элиты 1920-х годов.'),
 ]
 
 # Массово добавляем информацию в базу данных
